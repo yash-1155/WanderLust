@@ -50,7 +50,7 @@ module.exports.createListing = async (req, res, next) => {
     const newListing = new Listing(req.body.listing);
     newListing.image = { url, filename };
     newListing.owner = req.user._id;
-    newListing.geometry = response.body.features[0].geometry
+    newListing.geometry = response.body.features[0].geometry;
     let savesListing = await newListing.save();
     console.log(savesListing);
     req.flash("success", "New Listing created!");
